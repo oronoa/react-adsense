@@ -22,19 +22,29 @@ const Google = React.createClass({
 
   getDefaultProps: function() {
     return {
-      style: {display: 'block'}, 
-      format: 'auto'
+      style: {display: 'block'}
     };
   },
 
   render: function() {
-    return (
-      <ins className="adsbygoogle" 
-        style={this.props.style} 
-        data-ad-client={this.props.client} 
-        data-ad-slot={this.props.slot} 
-        data-ad-format={this.props.format}></ins>
-    );
+    if (this.props.format) {
+      return (
+        <ins className="adsbygoogle" 
+          style={this.props.style} 
+          data-ad-client={this.props.client} 
+          data-ad-slot={this.props.slot} 
+          data-ad-format={this.props.format}>
+        </ins>
+      );
+    } else {
+      return (
+        <ins className="adsbygoogle" 
+          style={this.props.style} 
+          data-ad-client={this.props.client} 
+          data-ad-slot={this.props.slot}>
+        </ins>
+      );
+    }
   }
 });
 
