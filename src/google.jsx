@@ -9,7 +9,15 @@ const Google = React.createClass({
   },
 
   componentDidMount: function() {
+    console.log('adsense mount');
     if(window) (window.adsbygoogle = window.adsbygoogle || []).push({});
+  },
+
+  componentWillUnmount: function() {
+    console.log('adsense unmount mount');
+    // IMPORTANT! Allow us to push new slot on other pages
+    window.adsbygoogle = window.adsbygoogle || [];
+    window.adsbygoogle.length = 0;
   },
 
   getDefaultProps: function() {
